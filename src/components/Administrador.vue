@@ -1,6 +1,6 @@
 <template>
-  <div class="sobremi">
-    <h1 v-text="title"></h1>
+  <div class="adm">
+    <h1>{{ title() }}</h1>
     <footer>
       <div>
         <i class="fab fa-twitter-square"></i>
@@ -31,7 +31,7 @@ export default {
 <style scoped>
 h1 {
   color: gray;
-  font-size: 100px;
+  font-size: 70px;
   margin: 40px;
 }
 .cuerpo {
