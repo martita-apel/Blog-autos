@@ -1,12 +1,13 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Inicio from "./components/Inicio";
-import SobreMi from "./components/SobreMi";
-import Blog from "./components/Blog";
+const Inicio = () => import("./components/Inicio");
+const SobreMi = () => import("./components/SobreMi");
+const Blog = () => import("./components/Blog");
 import Post from "./components/Post";
-import Contacto from "./components/Contacto";
+const Contacto = () => import("./components/Contacto");
 import NotFound from "./components/NotFound";
 import NuevoPost from "./components/NuevoPost";
+import Administrador from "./components/Administrador";
 
 Vue.use(Router);
 
@@ -16,8 +17,17 @@ export default new Router({
     {
       path: "/",
       component: Inicio,
+      alias: ["/home", "/inicio", "/portada"],
     },
-    { path: "/sobremi", component: SobreMi },
+    { path: "/sobremi", component: SobreMi, alias: ["/acerca"] },
+    {
+      path: "/administrador/:admin",
+      component: Administrador,
+      props: (route) => ({
+        admin: route.params.admin,
+      }),
+    },
+
     {
       path: "/blog/:post",
       component: Blog,
@@ -30,7 +40,11 @@ export default new Router({
       ],
     },
     { path: "/nuevopost", component: NuevoPost },
-    { path: "/contacto", component: Contacto },
+    {
+      path: "/contacto",
+      component: Contacto,
+      alias: ["/contactame"],
+    },
     { path: "*", component: NotFound },
   ],
 });

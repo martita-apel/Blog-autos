@@ -119,8 +119,7 @@
     <section>
       <router-link class="post" :to="{ name: 'post' }"
         >Revisa el resumen del próximo <b>POST</b></router-link
-      >
-      <router-view></router-view>
+      ><router-view></router-view>
     </section>
 
     <footer>

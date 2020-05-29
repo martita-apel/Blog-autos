@@ -19,38 +19,40 @@
           id="navbarNavAltMarkup"
         >
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#"
-              ><i class="fas fa-home"></i>
-              <router-link class="menu" to="/"> Inicio</router-link>
-              <!-- <span class="sr-only">(current)</span> --></a
+            <router-link class="menu" to="/">
+              <i class="fas fa-home"></i> Inicio</router-link
             >
-            <a class="nav-item nav-link" href="#">
-              <router-link class="menu" to="/blog/1">Blog</router-link>
-            </a>
-            <a class="nav-item nav-link" href="#">
-              <router-link class="menu" to="/sobremi">Sobre mí</router-link>
-            </a>
-            <a class="nav-item nav-link" href="#">
-              <router-link class="menu" to="/contacto">Contacto</router-link>
-            </a>
+            <router-link class="menu" to="/blog/1">Blog</router-link>
+            <router-link class="menu" to="/sobremi">Sobre mí</router-link>
+            <router-link class="menu" to="/contacto">Contacto</router-link>
+            <router-link class="menu" to="/administrador/simple"
+              ><i id="ad" class="fas fa-user-circle"></i
+            ></router-link>
           </div>
         </div>
       </nav>
     </div>
 
-    <router-view></router-view>
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
-/* import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
   name: "App",
-  components: {
-    HelloWorld,
+  /*  data() {
+    return {
+      desplegar: false,
+    };
   },
-}; */
+  methods: {
+    mostrarTransicion() {
+      this.desplegar = !this.desplegar;
+    },
+  }, */
+};
 </script>
 
 <style>
@@ -75,13 +77,37 @@ export default {
 .navbar-collapse {
   text-align: right;
 }
+.navbar-nav {
+  align-items: center;
+}
 .menu {
-  padding: 2px;
+  padding: 10px;
   color: white;
   text-decoration: none;
 }
 .fas {
   color: white;
+}
+#ad {
+  font-size: 22px;
+}
+
+/* .fade-enter,
+.fade-leave-to {
+  opacity: 1;
+}
+.fade-enter-to,
+.fade-leave {
+  opacity: 0;
+} */
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+  transition-timing-function: ease;
 }
 
 @media screen and (max-width: 550px) {

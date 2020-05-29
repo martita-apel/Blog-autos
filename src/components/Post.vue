@@ -1,5 +1,6 @@
 <template>
   <div class="post">
+    <hr />
     <h3>
       Conoce los últimos avances tecnológicos <br />
       en la nueva línea de
